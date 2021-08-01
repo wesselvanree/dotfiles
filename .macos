@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+
+# Run without downloading:
+# curl https://raw.githubusercontent.com/wesselvanree/.macos/HEAD/.macos | bash
+
+echo "Hello $(whoami)! Let's get you set up."
+
+xcode-select --install
+
+mkdir -p ~/code
+
+# set global git config
+printf "Do you want to configure your git user? (Y/n): "
+read -r configure_git_user
+
+if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
+then
+    printf "Enter your git name (leave empty to skip): "
+    read -r git_user
+
+    printf "Enter your git email (leave empty to skip): "
+    read -r git_email
+
+    if [[ ! -z "$git_user" ]]; then
+        git config --global user.name "$git_user"
+        echo "git config --global user.name \"$git_user\""
+    fi
+
+    if [ ! -z "$git_email" ]; then
+        git config --global user.email "$git_email"
+        echo "git config --global user.email \"$git_email\""
+    fi
+fi
+
+echo "Installing Homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "Installing packages using Homebrew"
+brew install n
+brew tap shopify/shopify
+brew install shopify-cli
+
+echo "Install NodeJS LTS"
+n lts
+
+echo "\nFinal Steps"
+echo "Setup SSH with Github:"
+echo "https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+echo "Setup GPG with Github:"
+echo "https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification"
+echo "Download GPG Suite:"
+echo "https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification"
