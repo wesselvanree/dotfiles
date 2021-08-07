@@ -32,16 +32,22 @@ then
     fi
 fi
 
-echo "Installing Homebrew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo "Installing packages using Homebrew"
-brew install n
-brew tap shopify/shopify
-brew install shopify-cli
+printf "Do you want to install packages? (Y/n): "
+read -r install_packages
 
-echo "Install NodeJS LTS"
-n lts
+if [[ $install_packages == "Y" || $install_packages == "y" ]]
+then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    echo "Installing Node.js..."
+    brew install node
+
+    echo "Installing Shopify CLI..."
+    brew tap shopify/shopify
+    brew install shopify-cli
+fi
 
 echo "\nFinal Steps"
 echo "Setup SSH with Github:"
