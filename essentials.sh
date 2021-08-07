@@ -1,51 +1,41 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 echo "Hello $(whoami)! Let's get you set up."
 
-echo "Installing Command Line Tools if not installed..."
-xcode-select -p
+homebrew_installed="false"
+brew help > /dev/null 2>&1 && homebrew_installed="true"
 
-mkdir -p ~/code
-
-# set global git config
-read -p "Do you want to configure your git user? (Y/n): " configure_git_user < /dev/tty
-
-if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
+if [[ $homebrew_installed == "false" ]]
 then
-    read -p "Enter your git name (leave empty to skip): " git_user < /dev/tty
-    read -p "Enter your git email (leave empty to skip): " git_email < /dev/tty
+    read -p "Homebrew not found on this machine, do you want to install homebrew? (Y/n): " install_homebrew < /dev/tty
 
-    if [[ ! -z "$git_user" ]]; then
-        git config --global user.name "$git_user"
-        echo "git config --global user.name \"$git_user\""
+    if [[ $install_homebrew == "false" ]]
+    then
+        echo "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && homebrew_installed="true"
     fi
-
-    if [ ! -z "$git_email" ]; then
-        git config --global user.email "$git_email"
-        echo "git config --global user.email \"$git_email\""
-    fi
+else
+    echo "Homebrew is already installed on this machine."
 fi
 
 
-read -p "Do you want to install packages? (Y/n): " install_packages < /dev/tty
-
-if [[ $install_packages == "Y" || $install_packages == "y" ]]
+if [[ $homebrew_installed == "true" ]]
 then
-    echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    read -p "Do you want to install packages? (Y/n): " install_packages < /dev/tty
 
-    echo "Installing Node.js..."
-    brew install node
+    if [[ $install_packages == "Y" || $install_packages == "y" ]]
+    then
+        echo "Installing Shopify CLI..."
+        brew tap shopify/shopify
+        brew install shopify-cli
 
-    echo "Installing Shopify CLI..."
-    brew tap shopify/shopify
-    brew install shopify-cli
+        echo "Installing GPG"
+        brew install gnupg
+
+        echo "Installing n and Node.js..."
+        brew install n
+        n lts
+    fi
 fi
 
-echo "\nFinal Steps"
-echo "Setup SSH with Github:"
-echo "https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
-echo "Setup GPG with Github:"
-echo "https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification"
-echo "Download GPG Suite:"
-echo "https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification"
+printf "\nDone!\n\n"
