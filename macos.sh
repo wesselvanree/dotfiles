@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Run without downloading:
-# curl https://raw.githubusercontent.com/wesselvanree/.macos/HEAD/.macos | bash
+# curl https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/macos.sh | bash
 
 echo "Hello $(whoami)! Let's get you set up."
 
