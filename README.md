@@ -7,5 +7,5 @@ Set up development environment on a new mac to start coding.
 To install packages on a new mac, run:
 
 ```bash
-curl https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/macos.sh | bash
+curl https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/essentials.sh | bash
 ```
