@@ -12,11 +12,8 @@ read -p "Do you want to configure your git user? (Y/n): " configure_git_user < /
 
 if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
 then
-    printf "Enter your git name (leave empty to skip): "
-    read -r git_user
-
-    printf "Enter your git email (leave empty to skip): "
-    read -r git_email
+    read -p "Enter your git name (leave empty to skip): " git_user < /dev/tty
+    read -p "Enter your git email (leave empty to skip): " git_email < /dev/tty
 
     if [[ ! -z "$git_user" ]]; then
         git config --global user.name "$git_user"
