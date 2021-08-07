@@ -12,7 +12,7 @@ mkdir -p ~/code
 
 # set global git config
 printf "Do you want to configure your git user? (Y/n): "
-read -r configure_git_user
+read -r configure_git_user < /dev/tty
 
 if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
 then
@@ -35,7 +35,7 @@ fi
 
 
 printf "Do you want to install packages? (Y/n): "
-read -r install_packages
+read -r install_packages < /dev/tty
 
 if [[ $install_packages == "Y" || $install_packages == "y" ]]
 then
