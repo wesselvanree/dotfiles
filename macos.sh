@@ -5,7 +5,8 @@
 
 echo "Hello $(whoami)! Let's get you set up."
 
-xcode-select --install
+echo "Installing Command Line Tools..."
+xcode-select --install || echo "Command Line Tools already installed!
 
 mkdir -p ~/code
 
