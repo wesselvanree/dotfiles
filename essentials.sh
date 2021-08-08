@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Hello $(whoami)! Let's get you set up."
+echo "Hello $(whoami)! Let's set up your local environment."
 
 homebrew_installed="false"
 brew help > /dev/null 2>&1 && homebrew_installed="true"
@@ -38,4 +38,27 @@ then
     fi
 fi
 
+vscode_installed="false"
+code -v > /dev/null 2>&1 && vscode_installed="true"
+
+if [[ $vscode_installed == "true" ]]
+then
+    echo "VSCode 'code' command detected!"
+    read -p "Do you want to install VSCode extensions? (Y/n): " install_vscode_extensions < /dev/tty
+
+    if [[ $install_vscode_extensions == "Y" || $install_vscode_extensions == "y" ]]
+    then
+        code --install-extension github.github-vscode-theme
+        code --install-extension ritwickdey.liveserver
+        code --install-extension eamodio.gitlens
+        code --install-extension pkief.material-icon-theme
+        code --install-extension dbaeumer.vscode-eslint
+        code --install-extension esbenp.prettier-vscode
+        code --install-extension ms-vscode.atom-keybindings
+    fi
+else
+    echo "Could not find VSCode 'code' command."
+fi
+
 printf "\nDone!\n\n"
+say Done

@@ -4,10 +4,10 @@ Set up development environment on a new mac to start coding.
 
 ## Getting Started
 
-To install essential software on a new mac, run:
+To set up a new mac for programming, run:
 
 ```bash
-curl https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/essentials.sh | bash
+curl https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/.macos | bash
 ```
 
 ## Final Steps
