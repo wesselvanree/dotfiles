@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 echo "updated"
 echo "Hello $(whoami)! Let's get you set up."
