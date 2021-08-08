@@ -40,8 +40,8 @@ then
     source ~/.zshrc
     
     echo ""
-    chmod a+x ~/dotfiles/essentials.sh
-    ~/dotfiles/essentials.sh
+    chmod a+x ~/dotfiles/.essentials
+    ~/dotfiles/.essentials
 else
     echo "~/dotfiles folder already exists."
 fi
