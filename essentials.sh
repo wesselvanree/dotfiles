@@ -12,7 +12,7 @@ then
     if [[ $install_homebrew == "Y" || $install_homebrew == "y" ]]
     then
         echo "Installing Homebrew..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && homebrew_installed="true"
+        sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && homebrew_installed="true"
     fi
 else
     echo "Homebrew is already installed on this machine."
