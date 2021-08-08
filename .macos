@@ -27,11 +27,8 @@ then
     fi
 fi
 
-# install dotfiles if not exist already
-dotfiles_exist="false"
-[ -d "~/dotfiles" ] && dotfiles_exist="true"
-
-if [[ dotfiles_exist == "false" ]]
+# install dotfiles if not installed
+if [[ ! -d "~/dotfiles" ]]
 then
     echo "cloning wesselvanree/dotfiles into ~/dotfiles..."
     git clone git@github.com:wesselvanree/dotfiles.git ~/dotfiles
