@@ -55,6 +55,7 @@ then
         code --install-extension ms-vscode.atom-keybindings
         code --install-extension shopify.theme-check-vscode
         code --install-extension killalau.vscode-liquid-snippets
+        code --install-extension bradlc.vscode-tailwindcss
     fi
 else
     echo "Could not find VSCode 'code' command."
