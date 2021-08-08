@@ -53,6 +53,8 @@ then
         code --install-extension dbaeumer.vscode-eslint
         code --install-extension esbenp.prettier-vscode
         code --install-extension ms-vscode.atom-keybindings
+        code --install-extension shopify.theme-check-vscode
+        code --install-extension killalau.vscode-liquid-snippets
     fi
 else
     echo "Could not find VSCode 'code' command."
