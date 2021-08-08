@@ -14,8 +14,8 @@ read -q "configure_git_user?Do you want to configure your git user? (Y/n): " < /
 
 if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
 then
-    read -p "Enter your git name (leave empty to skip): " git_user < /dev/tty
-    read -p "Enter your git email (leave empty to skip): " git_email < /dev/tty
+    read -q "git_user?Enter your git name (leave empty to skip): " < /dev/tty
+    read -q "git_email?Enter your git email (leave empty to skip): " < /dev/tty
 
     if [[ ! -z "$git_user" ]]; then
         git config --global user.name "$git_user"
@@ -26,6 +26,8 @@ then
         git config --global user.email "$git_email"
         echo "git config --global user.email \"$git_email\""
     fi
+else
+    echo ""
 fi
 
 # install dotfiles if not installed
