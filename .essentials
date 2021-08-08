@@ -8,6 +8,7 @@ brew help > /dev/null 2>&1 && homebrew_installed="true"
 if [[ $homebrew_installed == "false" ]]
 then
     read -q "install_homebrew?Homebrew not found on this machine, do you want to install homebrew? (Y/n): " < /dev/tty
+    echo ""
 
     if [[ $install_homebrew == "Y" || $install_homebrew == "y" ]]
     then
@@ -42,6 +43,7 @@ if [[ $vscode_installed == "true" ]]
 then
     echo "VSCode 'code' command detected!"
     read -q "install_vscode_extensions?Do you want to install VSCode extensions? (Y/n): " < /dev/tty
+    echo ""
 
     if [[ $install_vscode_extensions == "Y" || $install_vscode_extensions == "y" ]]
     then
