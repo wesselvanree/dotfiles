@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo "updated 1"
+echo "updated 2"
 echo "Hello $(whoami)! Let's get you set up."
 
 echo "Installing Command Line Tools if not installed..."
@@ -11,11 +11,14 @@ mkdir -p ~/code
 
 # set global git config
 read -q "configure_git_user?Do you want to configure your git user? (Y/n): " < /dev/tty
+echo ""
 
 if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
 then
     read -q "git_user?Enter your git name (leave empty to skip): " < /dev/tty
+    echo ""
     read -q "git_email?Enter your git email (leave empty to skip): " < /dev/tty
+    echo ""
 
     if [[ ! -z "$git_user" ]]; then
         git config --global user.name "$git_user"
@@ -26,8 +29,6 @@ then
         git config --global user.email "$git_email"
         echo "git config --global user.email \"$git_email\""
     fi
-else
-    echo ""
 fi
 
 # install dotfiles if not installed
@@ -41,10 +42,8 @@ then
     
     echo ""
     chmod a+x ~/dotfiles/.essentials
-    ~/dotfiles/.essentials
 else
     echo "~/dotfiles folder already exists."
 fi
 
-printf "\nDone!\n\n"
-say Done
+printf "\nDone installing .macos!\n\n"
