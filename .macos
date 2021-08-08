@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo "updated"
+echo "updated 1"
 echo "Hello $(whoami)! Let's get you set up."
 
 echo "Installing Command Line Tools if not installed..."
