@@ -59,6 +59,3 @@ then
 else
     echo "Could not find VSCode 'code' command."
 fi
-
-printf "\nDone!\n\n"
-say Done
