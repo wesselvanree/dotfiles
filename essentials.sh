@@ -7,7 +7,7 @@ brew help > /dev/null 2>&1 && homebrew_installed="true"
 
 if [[ $homebrew_installed == "false" ]]
 then
-    read -p "Homebrew not found on this machine, do you want to install homebrew? (Y/n): " install_homebrew < /dev/tty
+    read -q "install_homebrew?Homebrew not found on this machine, do you want to install homebrew? (Y/n): " < /dev/tty
 
     if [[ $install_homebrew == "Y" || $install_homebrew == "y" ]]
     then
@@ -21,7 +21,7 @@ fi
 
 if [[ $homebrew_installed == "true" ]]
 then
-    read -p "Do you want to install packages? (Y/n): " install_packages < /dev/tty
+    read -q "install_packages?Do you want to install packages? (Y/n): " < /dev/tty
 
     if [[ $install_packages == "Y" || $install_packages == "y" ]]
     then
@@ -41,7 +41,7 @@ code -v > /dev/null 2>&1 && vscode_installed="true"
 if [[ $vscode_installed == "true" ]]
 then
     echo "VSCode 'code' command detected!"
-    read -p "Do you want to install VSCode extensions? (Y/n): " install_vscode_extensions < /dev/tty
+    read -q "install_vscode_extensions?Do you want to install VSCode extensions? (Y/n): " < /dev/tty
 
     if [[ $install_vscode_extensions == "Y" || $install_vscode_extensions == "y" ]]
     then
