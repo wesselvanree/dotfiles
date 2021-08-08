@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 echo "Hello $(whoami)! Let's set up your local environment."
 
