@@ -30,9 +30,8 @@ then
         brew tap shopify/shopify
         brew install shopify-cli
 
-        echo "Installing n and Node.js LTS..."
-        brew install n
-        n lts
+        echo "Installing Node.js..."
+        brew install node
     fi
 fi
 
