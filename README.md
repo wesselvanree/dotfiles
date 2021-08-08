@@ -7,7 +7,7 @@ Set up development environment on a new mac to start coding.
 To set up a new mac for programming, run:
 
 ```bash
-curl https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/.macos | bash
+curl -s https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/.macos | bash
 ```
 
 ## Final Steps
