@@ -29,9 +29,6 @@ then
         brew tap shopify/shopify
         brew install shopify-cli
 
-        echo "Installing GPG"
-        brew install gnupg
-
         echo "Installing n and Node.js..."
         brew install n
         n lts
