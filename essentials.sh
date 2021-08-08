@@ -9,7 +9,7 @@ if [[ $homebrew_installed == "false" ]]
 then
     read -p "Homebrew not found on this machine, do you want to install homebrew? (Y/n): " install_homebrew < /dev/tty
 
-    if [[ $install_homebrew == "false" ]]
+    if [[ $install_homebrew == "Y" || $install_homebrew == "y" ]]
     then
         echo "Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && homebrew_installed="true"
