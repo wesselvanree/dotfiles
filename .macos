@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "updated 2"
 echo "Hello $(whoami)! Let's get you set up."
 
 echo "Installing Command Line Tools if not installed..."
@@ -9,7 +10,7 @@ echo "Creating code directory..."
 mkdir -p ~/code
 
 # set global git config
-read "configure_git_user?Do you want to configure your git user? (Y/n): " < /dev/tty
+read configure_git_user"?Do you want to configure your git user? (Y/n): " < /dev/tty
 
 if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
 then
