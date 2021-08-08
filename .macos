@@ -36,6 +36,7 @@ then
     echo "source ~/dotfiles/.zshrc" >> ~/.zshrc
     source ~/.zshrc
     
+    echo ""
     chmod a+x ~/dotfiles/essentials.sh
     ~/dotfiles/essentials.sh
 else
