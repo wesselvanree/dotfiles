@@ -42,7 +42,7 @@ then
     echo ""
     chmod a+x ~/dotfiles/.essentials
 else
-    echo "~/dotfiles folder already exists."
+    echo "Updating ~/dotfiles folder..."
     cd ~/dotfiles
     git pull
 fi
