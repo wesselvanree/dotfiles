@@ -16,9 +16,9 @@ echo ""
 if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
 then
     printf "%s " "Enter your git name (leave empty to skip):" < /dev/tty
-    read git_user
+    read git_user < /dev/tty
     printf "%s " "Enter your git email (leave empty to skip):" < /dev/tty
-    read git_email
+    read git_email < /dev/tty
 
     if [[ ! -z "$git_user" ]]; then
         git config --global user.name "$git_user"
