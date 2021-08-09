@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-echo "updated 2"
 echo "Hello $(whoami)! Let's get you set up."
 
 echo "Installing Command Line Tools if not installed..."
@@ -44,6 +43,8 @@ then
     chmod a+x ~/dotfiles/.essentials
 else
     echo "~/dotfiles folder already exists."
+    cd ~/dotfiles
+    git pull
 fi
 
 printf "\nDone installing .macos!\n\n"
