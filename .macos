@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+echo "updated"
 echo "Hello $(whoami)! Let's get you set up."
 
 echo "Installing Command Line Tools if not installed..."
@@ -14,10 +15,10 @@ echo ""
 
 if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
 then
-    read -q "git_user?Enter your git name (leave empty to skip): " < /dev/tty
-    echo ""
-    read -q "git_email?Enter your git email (leave empty to skip): " < /dev/tty
-    echo ""
+    printf "%s " "Enter your git name (leave empty to skip):" < /dev/tty
+    read git_user
+    printf "%s " "Enter your git email (leave empty to skip):" < /dev/tty
+    read git_email
 
     if [[ ! -z "$git_user" ]]; then
         git config --global user.name "$git_user"
