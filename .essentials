@@ -57,6 +57,17 @@ then
         code --install-extension killalau.vscode-liquid-snippets
         code --install-extension bradlc.vscode-tailwindcss
         code --install-extension csstools.postcss
+        code --install-extension formulahendry.auto-rename-tag
+        code --install-extension dbaeumer.vscode-eslint
+        code --install-extension dsznajder.es7-react-js-snippets
+        code --install-extension streetsidesoftware.code-spell-checker
+        code --install-extension graphql.vscode-graphql
+        code --install-extension jpoissonnier.vscode-styled-components
+        code --install-extension wordpresstoolbox.wordpress-toolbox
+        code --install-extension wix.vscode-import-cost
+        code --install-extension bierner.markdown-emoji
+        code --install-extension yzhang.markdown-all-in-one
+        code --install-extension formulahendry.code-runner
     fi
 else
     echo "Could not find VSCode 'code' command."
