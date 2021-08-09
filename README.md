@@ -23,5 +23,5 @@ Set up development environment on a new mac to start coding.
 
 ## Final Steps
 
-- [Download GPG Suite](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification)
+- [Download GPG Suite](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification) (already installed as brew cask by running `.essentials`)
 - [Setup GPG with Github](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification)
