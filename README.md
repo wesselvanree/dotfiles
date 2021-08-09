@@ -2,16 +2,16 @@
 
 Set up development environment on a new mac to start coding.
 
-## Getting Started
+## Setting up a new mac
 
-To set up a new mac for programming, run:
+1. [Set up SSH with Github](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. Run the `.macos` script:
 
-```bash
-curl -s https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/.macos | zsh && zsh ~/dotfiles/.essentials && say done
-```
+    ```bash
+    curl -s https://raw.githubusercontent.com/wesselvanree/dotfiles/HEAD/.macos | zsh && zsh ~/dotfiles/.essentials && say done
+    ```
 
 ## Final Steps
 
-- [Setup SSH with Github](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Setup GPG with Github](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification)
 - [Download GPG Suite](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification)
+- [Setup GPG with Github](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification)
