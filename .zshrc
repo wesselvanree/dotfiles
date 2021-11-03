@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Homebrew for m1 chip
+export PATH=/opt/homebrew/bin:$PATH
+
 # history size
 HISTSIZE=5000
 HISTFILESIZE=10000
