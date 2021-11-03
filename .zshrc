@@ -1,45 +1,5 @@
 #!/bin/bash
 
-autoload -U colors && colors
-
-export TERM=xterm-256color
-export CLICOLOR=1
-export LSCOLORS=Fafacxdxbxegedabagacad
-
-# PROMPT STUFF
-GREEN=$(tput setaf 2);
-CYAN="%F{037}"
-YELLOW=$(tput setaf 3);
-RESET=$(tput sgr0);
-
-function git_branch {
-  # Shows the current branch if in a git repository
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \(\1\)/';
-}
-
-function random_element {
-  declare -a array=("$@")
-  r=$((RANDOM % ${#array[@]}))
-  printf "%s\n" "${array[$r]}"
-}
-
-# Default Prompt
-setEmoji () {
-  EMOJI="$*"
-  DISPLAY_DIR='$(dirs)'
-  DISPLAY_BRANCH='$(git_branch)'
-  PROMPT=$'\n'"%n@%m ${CYAN}${DISPLAY_DIR}${GREEN}${DISPLAY_BRANCH}${RESET} ${EMOJI}"$'\n'"$ ";
-}
-
-newRandomEmoji () {
-  setEmoji "$(random_element 🔥 🚀 👻 ⛄ 👾 🍔 🍰 🐑 🏎 🤖 💪 🦄 🌮 🎉 💯 ⚛️ 🐠 🐳 👨‍💻 🦁 🐶 🐻 🦊 🐙 🦎 🦖 🦕 🦍 🦈 🐊 🦂 🐍 🐢 🐘 🐉 🦚 ✨ ☄️ ⚡️ 💥 💫 🧬 🔮 ⚗️ 🎊 🔭 ⚪️ 🔱)"
-}
-
-newRandomEmoji
-
-# allow substitution in PS1
-setopt promptsubst
-
 # history size
 HISTSIZE=5000
 HISTFILESIZE=10000
