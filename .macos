@@ -2,49 +2,14 @@
 
 echo "Hello $(whoami)! Let's get you set up."
 
-echo "Installing Command Line Tools if not installed..."
-xcode-select -p > /dev/null 2>&1
-
-echo "Creating code directory..."
+echo "Creating code directory"
 mkdir -p ~/code
 
-# set global git config
-read -q "configure_git_user?Do you want to configure your git user? (Y/n): " < /dev/tty
-echo ""
+echo "installing homebrew"
+# install homebrew https://brew.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-if [[ $configure_git_user == "Y" || $configure_git_user == "y" ]]
-then
-    printf "%s " "Enter your git name (leave empty to skip):" < /dev/tty
-    read git_user < /dev/tty
-    printf "%s " "Enter your git email (leave empty to skip):" < /dev/tty
-    read git_email < /dev/tty
-
-    if [[ ! -z "$git_user" ]]; then
-        git config --global user.name "$git_user"
-        echo "git config --global user.name \"$git_user\""
-    fi
-
-    if [ ! -z "$git_email" ]; then
-        git config --global user.email "$git_email"
-        echo "git config --global user.email \"$git_email\""
-    fi
-fi
-
-# install dotfiles if not installed
-if [[ ! -d "${HOME}/dotfiles" ]]
-then
-    echo "cloning wesselvanree/dotfiles into ~/dotfiles..."
-    git clone git@github.com:wesselvanree/dotfiles.git ~/dotfiles
-
-    echo "source ~/dotfiles/.zshrc" >> ~/.zshrc
-    source ~/.zshrc
-    
-    echo ""
-    chmod a+x ~/dotfiles/.essentials
-else
-    echo "Updating ~/dotfiles folder..."
-    cd ~/dotfiles
-    git pull
-fi
-
-printf "\nDone installing .macos!\n\n"
+echo "Cloning dotfiles"
+git clone git@github.com:wesselvanree/dotfiles.git "${HOME}/dotfiles"
+ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
+ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"

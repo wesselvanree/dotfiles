@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Homebrew for m1 chip
-export PATH=/opt/homebrew/bin:$PATH
-
 # history size
 HISTSIZE=5000
 HISTFILESIZE=10000
@@ -20,10 +17,25 @@ setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 
 # PATH ALTERATIONS
-## Node
+# Node
 PATH="/usr/local/bin:$PATH:./node_modules/.bin";
+# Homebrew for m1 mac
+PATH=$PATH:/opt/homebrew/bin
+# Composer
+PATH=$PATH:$HOME/.composer/vendor/bin
+# Julia
+PATH=/Applications/Julia-1.7.app/Contents/Resources/julia/bin::$PATH 
 
-# Custom Aliases
+
+# oh-my-zsh
+export ZSH="/Users/wessel/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# custom aliases
 function c { code ${@:-.} }
 alias ll="ls -1a";
 alias ..="cd ../";
@@ -36,7 +48,7 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
 alias npm-update="npx ncu --dep prod --dep dev --upgrade";
 alias refresh="source ~/.zshrc"
-
+function fnd() { find . -type d -maxdepth 1 -name *"$1"* }
 
 ## git aliases
 function gc { git commit -m "$@"; }
